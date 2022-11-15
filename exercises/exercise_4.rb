@@ -11,14 +11,14 @@ store4 = Store.create(name: "Surrey", annual_revenue: 224000, mens_apparel: fals
 store5 = Store.create(name: "Whistler", annual_revenue: 1900000, mens_apparel: true, womens_apparel: false)
 store6 = Store.create(name: "Yaletown", annual_revenue: 430000, mens_apparel: true, womens_apparel: true)
 
-@mens_stores = Store.where(mens_apparel: true)
+mens_stores = Store.where(mens_apparel: true)
 
-@mens_stores.each do |element|
+mens_stores.each do |element|
   puts "Name: #{element.name} Annual Revenue: #{element.annual_revenue}"
 end
 
-@womens_stores = Store.where(womens_apparel: true)
+womens_stores = Store.where(womens_apparel: true).where("annual_revenue < ?", 1000000)
 
-@womens_stores.each do |element|
+womens_stores.each do |element|
   puts "Name: #{element.name} Annual Revenue: #{element.annual_revenue}"
 end
